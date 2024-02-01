@@ -1,12 +1,21 @@
-users = {
-  token1 = {
-    tagKey = "tagValue"
+aws_users = {
+  admin-user1 = {
+    server = "192.168.2.23"
+    owner = "@mnecas"
   }
-  token2 = {}
+  admin-user2 = {}
 }
 
-user_path="infra"
+gcp_users = {
+  admin-user3 = {
+    server = "192.168.2.24",
+    test = "asdasd"
+    owner = "@mnecas"
+  }
+  admin-user4 = {}
+}
 
-# SES config
-sender="Sender Name <sender@example.com>"
-recepient="recipient@example.com"
+user_prefix="infra"
+
+# Slack config
+webhook_url = "https://hooks.slack.com/TXXXXX/BXXXXX/XXXXXXXXXX"

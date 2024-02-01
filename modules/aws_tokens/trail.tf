@@ -69,7 +69,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "bucket-config" {
   bucket = aws_s3_bucket.honeytokens_bucket.id
 
   rule {
-    id = "log"
+    id     = "log"
     status = "Enabled"
     expiration {
       days = 1

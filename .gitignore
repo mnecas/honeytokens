@@ -1,6 +1,7 @@
 # Local .terraform directories
 **/.terraform/*
-
+builds
+output
 # .tfstate files
 *.tfstate
 *.tfstate.*
@@ -33,4 +34,6 @@ override.tf.json
 .terraformrc
 terraform.rc
 
-builds
+builds/
+terraform.tfstate
+terraform.tfstate.backup

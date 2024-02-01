@@ -1,10 +1,10 @@
 module "lambda_function" {
-  source  = "terraform-aws-modules/lambda/aws"
-  
+  source = "terraform-aws-modules/lambda/aws"
+
   source_path = [
     {
-      path             = "lambda/",
-      pip_requirements = "lambda/requirements.txt"
+      path             = "${path.module}/lambda/",
+      pip_requirements = "${path.module}/lambda/requirements.txt"
     }
   ]
   function_name = "honeytokens_lambda"
@@ -21,10 +21,11 @@ module "lambda_function" {
   }
 
   environment_variables = {
-    USER_PATH = var.user_path,
-    RECIPIENT = var.recepient,
-    SENDER = var.sender,
-    REGION = data.aws_region.current.name
+    USER_PATH   = var.user_prefix,
+    WEBHOOK_URL = var.webhook_url
+    # RECIPIENT = var.recepient,
+    # SENDER = var.sender,
+    # REGION = data.aws_region.current.name
   }
   assume_role_policy_statements = {
     assume_role = {

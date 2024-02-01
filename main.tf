@@ -1,17 +1,26 @@
+terraform {
+  required_version = ">= 0.12"
+}
 
 provider "aws" {
 }
 
-resource "aws_iam_user" "honeytokens_users" {
-  for_each      = var.users
-  name          = "${each.key}"
-  path          = "/${var.user_path}/"
-  tags          = each.value
-  force_destroy = true
+provider "google" {
+  credentials = file("../admin.json")
+  project     = "honeytokens-401815"
+  region      = "us-central1"
 }
 
-resource "aws_iam_access_key" "honeytokens_keys" {
-  for_each   = var.users
-  user       = aws_iam_user.honeytokens_users[each.key].name
-  depends_on = [aws_iam_user.honeytokens_users]
+module "aws_tokens" {
+  source = "./modules/aws_tokens"
+  users = var.aws_users
+  webhook_url = var.webhook_url
+  user_prefix = var.user_prefix
+}
+
+module "gcp_tokens" {
+  source = "./modules/gcp_tokens"
+  users = var.gcp_users
+  webhook_url = var.webhook_url
+  user_prefix = var.user_prefix
 }
