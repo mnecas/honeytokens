@@ -12,14 +12,16 @@ provider "google" {
 }
 
 module "aws_tokens" {
-  source = "./modules/aws_tokens"
+  source  = "mnecas/tokens/aws"
+  version = "0.0.1"
   users = var.aws_users
   webhook_url = var.webhook_url
   user_prefix = var.user_prefix
 }
 
 module "gcp_tokens" {
-  source = "./modules/gcp_tokens"
+  source  = "mnecas/tokens/gcp"
+  version = "0.0.1"
   users = var.gcp_users
   webhook_url = var.webhook_url
   user_prefix = var.user_prefix

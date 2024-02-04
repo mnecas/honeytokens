@@ -1,2 +1,0 @@
-requests
-slack-sdk>=3.12,<4

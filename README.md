@@ -7,8 +7,8 @@ These tokens are placed across the infrastructure to the servers, git projects, 
 
 
 ## Modules
-- [aws_tokens](modules/aws_tokens/README.md) 
-- [gcp_tokens](modules/gcp_tokens/README.md) 
+- [mnecas/tokens/aws](https://github.com/mnecas/terraform-aws-tokens) 
+- [mnecas/tokens/gcp](https://github.com/mnecas/terraform-gcp-tokens) 
 
 
 ## Configuration
